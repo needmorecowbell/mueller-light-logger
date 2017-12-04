@@ -4,7 +4,7 @@ import sys
 import glob
 import time
 import progressbar
-
+import platform;
 def serial_ports():
     """ Lists serial port names
 
