@@ -2,8 +2,8 @@ import serial
 import datetime
 import sys
 import glob
-
-
+import time
+import progressbar
 # Calibration Procedure
 # 1. Get serial port (possibly list outputs)
 # 2. Loop for calibration
@@ -15,7 +15,7 @@ import glob
 # 8. continue until user says to stop
 
 # Logging Procedure
-# 1. Retrieve Templated CSV for timing (percentage,time in minutes at that percentage)
+# 1. Retrileve Templated CSV for timing (percentage,time in minutes at that percentage)
 # 2. for each percentage...
 # 3. convert percentage to value of 255
 # 4. send converted percentage to arduino via serial
@@ -54,6 +54,7 @@ def calibrate():
     print("***********************************")
     print("Light Calibration")
     print("Developed by: Adam Musciano")
+    print("Property of: Iglesias-Prieto Laboratories")
     print("***********************************\n")
     print("Available Ports: ")
 
@@ -113,6 +114,5 @@ def calibrate():
 
 
 
-
-
-calibrate()
+if __name__ == '__main__':
+    calibrate()
