@@ -7,7 +7,6 @@ import progressbar
 import platform;
 def serial_ports():
     """ Lists serial port names
-
         :raises EnvironmentError:
             On unsupported or unknown platforms
         :returns:
@@ -73,7 +72,11 @@ def lightControl():
 
                 chunk = logFile.readline()
                 print("[+] Intensity Level (%"+ str(intensityPercentage)+") being sent to arduino...")
-                s.write(str(intensityPercentage).encode()) # Write level to arduino
+                for i in range(0,4):
+                    s.write(str(intensityPercentage).encode()) # Write level to arduino
+                    time.sleep(1)
+                    print("[+] Intensity Level (%"+ str(intensityPercentage)+") being sent to arduino "+str(i+1)+" times...")
+         
 
                 print("[+] Intensity Level Sent.")
                 print("[+] Delaying for "+str(timeDelay)+" minutes..\n")
